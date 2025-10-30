@@ -70,6 +70,26 @@ function tambah(a, b) {
     }
     
 
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('sapaForm');
+    const input = document.getElementById('namaInput');
+    const hasil = document.getElementById('hasilSapa');
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const nama = input.value.trim();
+        if (!nama) {
+            hasil.textContent = 'Silakan masukkan nama.';
+            return;
+        }
+        hasil.textContent = sapa(nama);
+        input.value = '';
+        input.focus();
+    });
+});
+
+
 // Array
     let buah = ["Apel", "Jeruk", "Mangga"];
     console.log(buah[0]);
